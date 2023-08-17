@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="prod_wrpper">
+	<header class="main-article__products" style="background-image: url(../static/img/mini_dungeon.jpg);">
+		<div class="main-article__content">
+		<h1 class="products__title">Детали</h1>
+		</div>
+	</header>
+
+	<div class="main-menu">
+		<a href="/products">
+			<img class="menu-img-prev" src="../static/img/prev.png" alt="">
+		</a>
+	</div>
+
+	<div class="product-detail">
+		<div class="main-info_about_prod">
+			<h2 class="product-detail__title">{{ article.title }}</h2>
+			<h4><span id="cat-title">Категория: </span>{{ article.category }}</h4>
+			<h3 class="product-detail__price">{{ article.price }} руб.</h3>
+		</div>
+		<div class="other-info_about_prod">
+			<p class="product-detail__details">Комментарий от продавца: {{ article.text }}</p> 
+			<p class="ready-public__date-text"><br>Опубликовано:</p>
+			<p class="ready-public__date">{{ article.date.date() }}</p>
+			<a class="send-btn__details" href="#">Купить</a>
+			<a href="/products/{{ article.id }}/delete" class="send-btn__details">Удалить</a>
+		</div>
+	</div>
+
+	<footer class="main-footer">
+		<div>
+			<div class="list-menu">
+				<a href="/" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine-right">
+						<div class="col-footer">
+							<p class="col-footer__text">Главная</p>
+						</div>
+					</div>
+				</a>
+				<a href="/posts" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Статьи</p>
+						</div>
+					</div>
+				</a>
+				<a href="/products" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Каталог</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="copy">@ Hissie</div>
+		</div>
+	</footer>
+</div>
+{% endblock %}

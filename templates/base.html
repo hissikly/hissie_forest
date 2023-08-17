@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{% block title %}{% endblock %}</title>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+
+	<script src="../static/libs/gsap/gsap.min.js" defer></script>
+	<script src="../static/libs/gsap/ScrollTrigger.min.js" defer></script>
+	<script src="../static/libs/gsap/ScrollSmoother.min.js" defer></script>
+
+	<script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+	{% block body %}{% endblock %}
+</body>

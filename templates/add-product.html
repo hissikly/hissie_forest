@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление продукта
+{% endblock %}
+
+{% block body %}
+<div class="prod-wrapper">
+	<header class="main-article__products" style="background-image: url(../static/img/mini_dungeon.jpg);">
+		<div class="main-article__content">
+		<h1 class="products__title">Добавление товара</h1>
+		</div>	
+	</header>
+
+	<article>
+		<form id="upload-container" method="post" class="main-input__place">
+			<div>
+				<h3 class="input-title">Название товара</h3>
+				<input class="form_content" name="title" id="title" placeholder="Введите название" type="text"><br><br>
+			</div>
+			<div>
+				<h3 class="input-title">Цена</h3>
+				<input class="form_content" name="price" id="price" placeholder="Введите цену" type="text"><br><br>
+			</div>
+			<div>
+				<h3 class="input-title">Категория</h3>
+				<input class="form_content" name="category" id="category" type="text" list="category_lst"placeholder="Категория"/><br><br>
+			</div>
+			<datalist id="category_lst">
+				<option>Семьям</option>
+				<option>Для себя</option>
+				<option>Для комании</option>
+				<option>Для всех</option>
+			</datalist>
+			<div>
+				<h3 class="input-title">Описание</h3>
+				<textarea class="form_content" name="text" id="text" placeholder="Введите описание" type="text"></textarea><br><br>
+			</div>
+			<div>
+				<h3 class="input-title">Фото</h3>
+				<div id="special-img">
+					<img id="upload-image" src="../static/img/upload.svg">
+					<div>
+						<input id="photo" type="file" name="photo" multiple>
+						<label for="photo">Выберите файл</label><br>
+						<span>или перетащите его сюда</span>
+					</div>
+				</div>
+			</div>
+			<input type="submit" class="send-btn" value="Оправить"><br>
+		</form>
+	</article>
+
+		<footer class="main-footer">
+		<div>
+			<div class="list-menu">
+				<a href="/" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine-right">
+						<div class="col-footer">
+							<p class="col-footer__text">Главная</p>
+						</div>
+					</div>
+				</a>
+				<a href="/posts" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Статьи</p>
+						</div>
+					</div>
+				</a>
+				<a href="/products" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Каталог</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="copy">@ Hissie</div>
+		</div>
+	</footer>
+</div>
+{% endblock %}

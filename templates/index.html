@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Hissie Forest
+{% endblock %}
+
+{% block body %}
+	<div class="wrapper">
+		<div class="content">
+			<header class="main-header">
+				<div class="layers">
+					<div class="layer__header">
+						<div class="layers__caption">добро пожаловать в</div>
+						<div class="layers__title">hissie forest</div>
+						<a class="layers__lie_button" href="/">онлайн магазин товаров</a>
+					</div>
+					<div class="layer layers__base" style="background-image: url(../static/img/layer-base.png)"></div>
+					<div class="layer layers__middle" style="background-image: url(../static/img/layer-middle.png)"></div>
+					<div class="layer layers__front" style="background-image: url(../static/img/layer-front.png)"></div>
+				</div>
+			</header>
+		
+			<article class="main-article" style="background-image: url(../static/img/dungeon.jpg);">
+				<div class="main-article__content">
+					<h2 class="main-article__header">для кого подходит наша организация</h2>
+					<p class="main-article__paragraph">Это сообщество людей, которым интересен активный образ жизни и отдых на природе! Здесь вы найдёте товары для ваших будущих приключений, а также статьи уже опытных и не очень опытных людей, занимающихся походами и туризмом!</p>
+				</div>
+					<div class="table">
+						<div class="col">
+							<h3 class="table-title">СЕМЬЯМ</h3>
+							<p>и родным</p>
+							<img class="main-article__image" src="../static/img/family.jpg" alt="">
+						</div>
+						<div class="col">
+							<h3 class="table-title">ДРУЗЬЯМ</h3>
+							<p>и их друзьям</p>
+							<img class="main-article__image" src="../static/img/friends.jpg" alt="">
+						</div>
+						<div class="col">
+							<h3 class="table-title">ДЛЯ СЕБЯ</h3>
+							<p>и питомцам</p>
+							<img class="main-article__image" src="../static/img/travel.jpg" alt="">
+						</div>
+					</div>
+					<a href="/products" class="main-article__button">перейти к покупке</a>
+					<div class="copy">© Hissie</div>
+			</article>
+		</div>
+	</div>
+{% endblock %}

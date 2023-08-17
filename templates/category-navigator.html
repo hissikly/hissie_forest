@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Категория товара
+{% endblock %}
+
+{% block body %}
+<div class="prod_wrapper">
+	<header class="main-article__products" style="background-image: url(../static/img/mini_dungeon.jpg);">
+		<div class="main-article__content">
+		<h1 class="products__title">Товары для всех случаев жизни</h1>
+		</div>	
+	</header>
+	<article class="main-list__products">
+		<div class="main-menu">
+			<a href="/products">
+				<img class="menu-img-prev" src="../static/img/prev.png" alt="">
+			</a>
+			<a href="/add-product">
+				<img class="menu-img-add" src="../static/img/add.png" alt="">
+			</a>
+		</div>
+		<div class="main-table__products">
+			<div class="verticalLine-right">
+				<a href="/products/for-family">
+					<div class="products-col">
+						<h3 class="main-product-title">СЕМЬЯМ</h3>
+					</div>
+				</a>
+			</div>
+			<div class="verticalLine">
+				<a href="/products/for-friends">
+					<div class="products-col">
+						<h3 class="main-product-title">ДРУЗЬЯМ</h3>
+					</div>
+				</a>
+			</div>
+			<div class="verticalLine">
+				<a href="/products/for-me">
+					<div class="products-col">
+						<h3 class="main-product-title">ДЛЯ СЕБЯ</h3>
+					</div>
+				</a>
+			</div>
+		</div>
+		{% set count = namespace(value=0) %}
+		{% if articles | length > 0 %}
+			{% for el in articles %}
+				{% if category == cat_dict[el.category] %}
+					{% set count.value = count.value + 1 %}
+					<div class="ready-public">
+							<h2 class="ready-public__title">{{ el.title }}</h2>
+							<h3 class="ready-public__price">{{ el.price }} руб.</h3>
+							<p class="ready-public__date-text"><br>Опубликовано:</p>
+							<p class="ready-public__date">{{ el.date.date() }}</p>
+							<a class="send-btn__details" href="/products/{{ el.id }}">Детали</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% if count.value == 0 or articles | length == 0 %}
+				<h2>Пока что нет опубликованных товаров с этой категорией</h2><br>
+				<h3>Стань первым!</h3>
+		{% endif %}
+		{% endif %}
+	</article>
+	<footer class="main-footer">
+		<div>
+			<div class="list-menu">
+				<a href="/" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine-right">
+						<div class="col-footer">
+							<p class="col-footer__text">Главная</p>
+						</div>
+					</div>
+				</a>
+				<a href="/posts" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Статьи</p>
+						</div>
+					</div>
+				</a>
+				<a href="/products" class="redirect_link" style="text-decoration: none">
+					<div class="verticalLine">
+						<div class="col-footer">
+							<p class="col-footer__text">Каталог</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="copy">@ Hissie</div>
+		</div>
+	</footer>
+</div>
+{% endblock %}
